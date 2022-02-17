@@ -3,8 +3,8 @@
 [RequireComponent(typeof(Animator))]
 public class Attack : MonoBehaviour
 {
-    private const string ATTACK = "Attack";
-    private const string EXTRA_ATTACK = "Extra_Attack";
+    private const string Attacking = "Attack";
+    private const string ExtraAttack = "Extra_Attack";
 
     private Animator _animator;
 
@@ -22,11 +22,11 @@ public class Attack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            _animator.SetTrigger(ATTACK);
+            _animator.SetTrigger(Attacking);
         }
         else if (Input.GetMouseButtonDown(1))
         {
-            _animator.SetTrigger(EXTRA_ATTACK);
+            _animator.SetTrigger(ExtraAttack);
         }
     }
 }

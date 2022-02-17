@@ -5,6 +5,9 @@
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float _speed;
+
+    private const string HORIZONTAL = "Horizontal";
+
     private Animator _animator;
     private Rigidbody2D _rigidbody;
     private float _horizontalValue;
@@ -25,7 +28,7 @@ public class Movement : MonoBehaviour
 
     private void Move()
     {
-        _horizontalValue = Input.GetAxisRaw("Horizontal");
+        _horizontalValue = Input.GetAxisRaw(HORIZONTAL);
         _xVelocity = _speed * _horizontalValue;
         Vector2 targetVelocity = new Vector2(_xVelocity, _rigidbody.velocity.y);
         _rigidbody.velocity = targetVelocity;
@@ -41,6 +44,6 @@ public class Movement : MonoBehaviour
             _isFacingRight = true;
         }
 
-        _animator.SetFloat("Horizontal", Mathf.Abs(_rigidbody.velocity.x));
+        _animator.SetFloat(HORIZONTAL, Mathf.Abs(_rigidbody.velocity.x));
     }
 }

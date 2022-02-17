@@ -5,8 +5,11 @@
 public class Jump : MonoBehaviour
 {
     [SerializeField] private Transform _groundCheckCollider;
-    [SerializeField] LayerMask _groundLayer;
+    [SerializeField] private LayerMask _groundLayer;
     
+    private const string JUMP = "Jump";
+    private const string IS_GROUNDED = "isGrounded";
+
     private int _jumpForce;
     private Animator _animator;
     private Rigidbody2D _rigidbody;
@@ -31,8 +34,8 @@ public class Jump : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && _rigidbody.velocity.y == 0)
         {
             _rigidbody.AddForce(Vector2.up * _jumpForce);
-            _animator.SetBool("Jump", true);
-            _animator.SetBool("isGrounded", _isGrounded);
+            _animator.SetBool(JUMP, true);
+            _animator.SetBool(IS_GROUNDED, _isGrounded);
         }
     }
 
@@ -43,8 +46,8 @@ public class Jump : MonoBehaviour
         if(colliders.Length > 0)
         {
             _isGrounded = true;
-            _animator.SetBool("Jump", false);
-            _animator.SetBool("isGrounded", _isGrounded);
+            _animator.SetBool(JUMP, false);
+            _animator.SetBool(IS_GROUNDED, _isGrounded);
         }
         else
         {

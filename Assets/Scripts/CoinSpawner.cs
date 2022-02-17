@@ -4,6 +4,7 @@ public class CoinSpawner : MonoBehaviour
 {
     [SerializeField] private Transform _points;
     [SerializeField] private Coin _coin;
+
     private Transform[] _spawnPoints;
 
     private void Start()
